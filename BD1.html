@@ -37,7 +37,7 @@
 
     <audio id="meinAudio" src="https://cdn.jsdelivr.net/gh/AsukiAoyama/BD2@main/sound2.mp3" loop></audio>
 
-    <script>
+   <script>
         const audio = document.getElementById('meinAudio');
         const hinweis = document.getElementById('hinweis');
         const mario = document.getElementById('mario');
@@ -47,6 +47,13 @@
             mario.style.display = 'block';
             audio.play();
         }, { once: true });
+
+        // Wartet 1500 ms nach Ende des Sounds und startet ihn neu
+        audio.addEventListener('ended', () => {
+            setTimeout(() => {
+                audio.play();
+            }, 3000);
+        });
     </script>
 
 </body>
